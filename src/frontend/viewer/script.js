@@ -4,6 +4,11 @@
 const videoqueue = [];
 
 /**
+ * The alerts listener
+ */
+const alerts = new EventSource('/api/listener');
+
+/**
  * The video player
  */
 const player = document.getElementById('player');
@@ -48,3 +53,7 @@ const addVideo = (url) => {
     videoqueue.push(url);
     nextVideo();
 };
+
+alerts.addEventListener('message', message => {
+    addVideo(message.data);
+});
