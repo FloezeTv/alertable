@@ -1,0 +1,17 @@
+{
+  "name": "alertable",
+  "version": "0.1.0",
+  "description": "An app that plays alerts on events",
+  "main": "index.js",
+  "repository": "github:FloezeTv/alertable",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "alerts",
+    "events"
+  ],
+  "author": "FloezeTv",
+  "license": "Apache-2.0",
+  "dependencies": {}
+}
