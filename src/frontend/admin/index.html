@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Alertable - Admin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>Alertable - Admin</h1>
+    </header>
+
+    <form target="uploadFormFrame" action="/api/alerts/upload" method="POST" enctype="multipart/form-data">
+        <iframe style="display: none" title="uploadFormFrame" name="uploadFormFrame" id="uploadFormFrame"></iframe>
+
+        <input name="video" type="file"/>
+        <input type="text" name="name" placeholder="Name" />
+        <input type="text" name="tags" placeholder="Tags" />
+
+        <input type="submit" value="upload" />
+    </form>
+
+    <div id="list"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

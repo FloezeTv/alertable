@@ -26,7 +26,7 @@ api.get('/listener', (req, res) => {
     res.write('retry: 1000\n\n');
 
     // add listener method to listeners
-    const listener = (url) => res.write(`data: ${url}\n\n`);
+    const listener = (id) => res.write(`data: ${id}\n\n`);
     listeners.push(listener);
 
     // remove listener on close

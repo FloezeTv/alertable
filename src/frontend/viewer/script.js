@@ -55,5 +55,5 @@ const addVideo = (url) => {
 };
 
 alerts.addEventListener('message', message => {
-    addVideo(message.data);
+    addVideo('/api/alerts/videos/' + message.data);
 });
