@@ -1,10 +1,16 @@
 const express = require('express');
 
+const mapping = require('./data').mapping;
+
 const alerts = express.Router();
 
 alerts.get('/play/:name', (req, res) => {
-    // TODO: map name to url
-    module.exports.onplayalert(req.params.name);
+    const url = mapping.data[req.params.name];
+    if (!url) {
+        res.send({ 'error': 'alert not defined' });
+        return;
+    }
+    module.exports.onplayalert(url);
     res.send({ 'success': true });
 });
 
