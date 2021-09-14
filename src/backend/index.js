@@ -3,8 +3,10 @@ const express = require('express');
 const listeners = [];
 
 const api = express.Router();
-const alerts = express.Router();
-api.use('/alerts', alerts);
+
+const alerts = require('./alerts');
+api.use('/alerts', alerts.route);
+alerts.onplayalert = (url) => listeners.forEach(listener => listener(url));
 
 api.get('/', (req, res) => {
     res.send('Alertable');
@@ -32,12 +34,6 @@ api.get('/listener', (req, res) => {
         listeners.splice(listeners.indexOf(listener), 1);
         res.end();
     });
-});
-
-alerts.get('/create/:name', (req, res) => {
-    // TODO: map name to url
-    listeners.forEach(listener => listener(req.params.name));
-    res.send({ 'success': true });
 });
 
 module.exports = api;
