@@ -8,6 +8,9 @@ fs.mkdirSync(dataFolder, { recursive: true });
 const videoFolder = path.join(dataFolder, 'videos');
 fs.mkdirSync(videoFolder, { recursive: true });
 
+const videoProxyFolder = path.join(videoFolder, 'proxy');
+fs.mkdirSync(videoProxyFolder, { recursive: true });
+
 /**
  * Reads a json file and returns the content as an object or an empty object if not exists
  * @param {String | fs.PathLike} file file to read
@@ -38,5 +41,5 @@ const createExportObjectJSON = (file) => createExportObject(file, loadJSON, save
 
 module.exports = {
     mapping: createExportObjectJSON(path.join(dataFolder, 'mapping.json')),
-    videos: {...createExportObjectJSON(path.join(dataFolder, 'videos.json')), folder: videoFolder},
+    videos: {...createExportObjectJSON(path.join(dataFolder, 'videos.json')), folder: videoFolder, proxyFolder: videoProxyFolder},
 };
